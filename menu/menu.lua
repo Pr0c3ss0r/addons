@@ -94,8 +94,6 @@ end
 function CreateMenu(MenuName, Caption, opt, x, y, mx, sub_key)
    _Menu.list[MenuName] = {}
 
-   if mx > #opt + 1 then mx = #opt + 1 end
-
    local tb = ''
    local scr = ''
 
@@ -129,6 +127,8 @@ function CreateMenu(MenuName, Caption, opt, x, y, mx, sub_key)
       end
       ii = ii + 1
    end
+
+   if mx > #_Menu.list[MenuName]['text'] + 1 then mx = #_Menu.list[MenuName]['text'] + 1 end
 
    for i = 0, #_Menu.list[MenuName]['text'] do
       _Menu.list[MenuName]['Core_Text'][i] = ' '.._Menu.list[MenuName]['text'][i]..string.rep(' ', _Menu.list[MenuName]['max_ln'] - string.len(_Menu.list[MenuName]['text'][i]))..'\\cr\n'
